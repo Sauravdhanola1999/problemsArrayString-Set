@@ -134,7 +134,6 @@ function indexedinthearray(array, num) {
 // Left Rotate the Array by One
 
 function reverseExcept(array) {
-  let temp = array[0];
   let newArray = [];
   for (let i = array.length - 1; i >= 1; i--) {
     newArray.push(array[i]);
@@ -228,4 +227,26 @@ function intersectionofArrays(arr1, arr2) {
   return result;
 }
 
-console.log(intersectionofArrays([1, 2, 3, 4, 5], [2, 3, 4, 4, 5]));
+// console.log(intersectionofArrays([1, 2, 3, 4, 5], [2, 3, 4, 4, 5]));
+
+// Majority Element
+
+function majority(array) {
+  let n = array.length;
+  for (let i = 0; i < n; i++) {
+    let count = 0;
+    for (let j = 0; j < n; j++) {
+      if (array[j] === array[i]) {
+        count++;
+      }
+    }
+    if (count > n / 2) {
+      return array[i];
+    }
+  }
+  return null;
+}
+
+console.log(majority([3, 3, 4, 2, 3, 3, 3])); // Output: 3
+
+
