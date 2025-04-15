@@ -41,10 +41,10 @@ function areAnagrams(str1, str2) {
 }
 
 // Example usage:
-console.log(areAnagrams("listen", "silent")); // true
-console.log(areAnagrams("hello", "olelh")); // true
-console.log(areAnagrams("a gentleman", "elegant man")); // true
-console.log(areAnagrams("test", "taste")); // false
+// console.log(areAnagrams("listen", "silent")); // true
+// console.log(areAnagrams("hello", "olelh")); // true
+// console.log(areAnagrams("a gentleman", "elegant man")); // true
+// console.log(areAnagrams("test", "taste")); // false
 
 // check palindrome
 
@@ -241,5 +241,31 @@ function selectionSort(array){
 // console.log(selectionSort([5, 2, 6, 4, 1, 3]));
 
 
+function checkArray(arr1, arr2){
+  if(arr1.length!==arr2.length){
+    return false;
+  }
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr1[i] !== arr2[i]) return false;
+  }
+  return true
+}
 
+console.log(checkArray([1, 2, 3], [1, 2, 3]));
 
+// function findLongestWordInfo(sentence) {
+  
+function findLongestWordInfo(sentence) {
+  let words = sentence.split(" ");
+  let longest = "";
+
+  for (let word of words) {
+    if (word.length > longest.length) {
+      longest = word;
+    }
+  }
+
+  return { word: longest, length: longest.length };
+}
+console.log(findLongestWordInfo("Coding is super fun and challenging!"));
+// ➤ { word: 'challenging!', length: 11 }

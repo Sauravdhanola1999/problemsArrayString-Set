@@ -99,7 +99,7 @@ function largestelement(array) {
     if (array[i] > largest) {
       largest = array[i];
     }
-  }
+  } 
   return largest;
 }
 
@@ -247,6 +247,88 @@ function majority(array) {
   return null;
 }
 
-console.log(majority([3, 3, 4, 2, 3, 3, 3])); // Output: 3
+// console.log(majority([3, 3, 4, 2, 3, 3, 3])); // Output: 3
 
+//find the duplicate elements in an array
+
+function duplicateElementsArray(array) {
+  let freq = {};
+  let result = [];
+  for (let arr of array) {
+    freq[arr] = (freq[arr] || 0) + 1;
+  }
+  for (let [key, value] in freq) {
+    if (freq[key] > 1) {
+      result.push(Number(key));
+    }
+  }
+  return result;
+}
+
+// console.log(duplicateElementsArray([4,3,2,7,8,2,3,1]));
+
+function minmax(array) {
+  let max = array[0];
+  let min = array[0];
+  for (let i = 1; i < array.length; i++) {
+    if (array[i] > max) {
+      max = array[i];
+    }
+    if (array[i] < min) {
+      min = array[i];
+    }
+  }
+  return [max, min];
+}
+
+// console.log(minmax([4, 8, 2, 10, 6]));
+
+// to find the second largest element in an array
+
+
+function secondLargest(array) {
+  if(array.length<=1) return array
+  let largest = -Infinity;
+  let secondLargest = -Infinity;
+  for (let arr of array) {
+    if (arr > largest) {
+      secondLargest = largest;
+      largest = arr;
+    } else if (arr > secondLargest && arr < largest) {
+      secondLargest = arr;
+    }
+  }
+  return secondLargest === -Infinity? null : secondLargest;
+}
+
+// console.log(secondLargest([4, 8, 2, 10, 6]));
+
+
+// find missing elements in an array
+
+function missingElements(array){
+  let missing = [];
+  let max = Math.max(...array);
+  let min = Math.min(...array);
+  for(let i=min; i<=max; i++){
+    if(!array.includes(i)){
+      missing.push(i);
+    }
+  }
+  return missing;
+}
+
+// console.log(missingElements([1, 2, 4, 5, 6, 7, 9]));
+
+// sum of all elemetns 
+
+function sumofall(array){
+  let sum =0;
+  for(let i=0; i<array.length; i++){
+    sum+=array[i];
+  }
+  return sum;
+}
+
+console.log(sumofall([6,7,8,8]))
 
